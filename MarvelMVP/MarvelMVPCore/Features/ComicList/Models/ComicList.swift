@@ -6,3 +6,15 @@
 //
 
 import Foundation
+
+// MARK: - Model
+struct ComicList {
+    var list: [Comic] = []
+}
+
+struct Comic {
+    let name: String
+    let thumbnail : URL?
+    let price: Double?
+    let releaseDate: String?
+}

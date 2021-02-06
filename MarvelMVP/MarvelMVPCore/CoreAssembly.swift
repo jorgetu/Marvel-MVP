@@ -14,8 +14,7 @@ final public class CoreAssembly {
 
     // MARK: - Variables
     public private(set) lazy var comicListAssembly =
-        ComicListAssembly(comicDetailAssembly: comicDetailAssembly,
-                                webServiceAssembly: webServiceAssembly)
+        ComicListAssembly(webServiceAssembly: webServiceAssembly)
     
     private(set) lazy var webServiceAssembly = WebServiceAssembly()
 
