@@ -171,6 +171,7 @@
 		A5D670B825CEABD900A69368 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				A5D670FE25CF092C00A69368 /* ComicList */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -197,6 +198,45 @@
 				A5D6707825CEA57100A69368 /* Info.plist */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A5D670FE25CF092C00A69368 /* ComicList */ = {
+			isa = PBXGroup;
+			children = (
+				A5D6710225CF096700A69368 /* Models */,
+				A5D6710125CF095E00A69368 /* Views */,
+				A5D6710025CF095500A69368 /* Presentation */,
+				A5D670FF25CF094B00A69368 /* Repositories */,
+			);
+			path = ComicList;
+			sourceTree = "<group>";
+		};
+		A5D670FF25CF094B00A69368 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		A5D6710025CF095500A69368 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		A5D6710125CF095E00A69368 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A5D6710225CF096700A69368 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
