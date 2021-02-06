@@ -19,6 +19,7 @@
 		A5D670C725CEAC5200A69368 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D670C625CEAC5200A69368 /* WebService.swift */; };
 		A5D670CC25CEAC8300A69368 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D670CB25CEAC8300A69368 /* Endpoint.swift */; };
 		A5D670D825CEB25C00A69368 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D670D725CEB25C00A69368 /* String.swift */; };
+		A5D670FA25CF085C00A69368 /* MNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D670F925CF085C00A69368 /* MNavigationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		A5D670C625CEAC5200A69368 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		A5D670CB25CEAC8300A69368 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		A5D670D725CEB25C00A69368 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		A5D670F925CF085C00A69368 /* MNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MNavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				A5D670EE25CEBC0500A69368 /* Resources */,
 				A5D6706A25CEA56D00A69368 /* AppDelegate.swift */,
 				A5D6706C25CEA56D00A69368 /* AppAssembly.swift */,
+				A5D670F925CF085C00A69368 /* MNavigationController.swift */,
 				A5D6707525CEA57100A69368 /* LaunchScreen.storyboard */,
 				A5D670A625CEAAD100A69368 /* MarvelMVPCore */,
 			);
@@ -329,6 +332,7 @@
 				A5D670C725CEAC5200A69368 /* WebService.swift in Sources */,
 				A5D670C225CEAC3500A69368 /* ServiceError.swift in Sources */,
 				A5D670AE25CEABA400A69368 /* CoreAssembly.swift in Sources */,
+				A5D670FA25CF085C00A69368 /* MNavigationController.swift in Sources */,
 				A5D6706B25CEA56D00A69368 /* AppDelegate.swift in Sources */,
 				A5D670BA25CEAC1700A69368 /* WebServiceAssembly.swift in Sources */,
 				A5D670D825CEB25C00A69368 /* String.swift in Sources */,
