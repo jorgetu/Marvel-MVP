@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A5D6706B25CEA56D00A69368 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D6706A25CEA56D00A69368 /* AppDelegate.swift */; };
-		A5D6706D25CEA56D00A69368 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D6706C25CEA56D00A69368 /* SceneDelegate.swift */; };
+		A5D6706D25CEA56D00A69368 /* AppAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D6706C25CEA56D00A69368 /* AppAssembly.swift */; };
 		A5D6707425CEA57100A69368 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5D6707325CEA57100A69368 /* Assets.xcassets */; };
 		A5D6707725CEA57100A69368 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5D6707525CEA57100A69368 /* LaunchScreen.storyboard */; };
 		A5D6708225CEA57100A69368 /* Marvel_MVPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D6708125CEA57100A69368 /* Marvel_MVPTests.swift */; };
@@ -41,7 +41,7 @@
 /* Begin PBXFileReference section */
 		A5D6706725CEA56D00A69368 /* Marvel-MVP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Marvel-MVP.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5D6706A25CEA56D00A69368 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A5D6706C25CEA56D00A69368 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		A5D6706C25CEA56D00A69368 /* AppAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAssembly.swift; sourceTree = "<group>"; };
 		A5D6707325CEA57100A69368 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A5D6707625CEA57100A69368 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A5D6707825CEA57100A69368 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -107,12 +107,12 @@
 		A5D6706925CEA56D00A69368 /* MarvelMVP */ = {
 			isa = PBXGroup;
 			children = (
+				A5D670EF25CEBC1300A69368 /* Supporting Files */,
+				A5D670EE25CEBC0500A69368 /* Resources */,
 				A5D6706A25CEA56D00A69368 /* AppDelegate.swift */,
-				A5D6706C25CEA56D00A69368 /* SceneDelegate.swift */,
+				A5D6706C25CEA56D00A69368 /* AppAssembly.swift */,
 				A5D6707525CEA57100A69368 /* LaunchScreen.storyboard */,
 				A5D670A625CEAAD100A69368 /* MarvelMVPCore */,
-				A5D6707325CEA57100A69368 /* Assets.xcassets */,
-				A5D6707825CEA57100A69368 /* Info.plist */,
 			);
 			path = MarvelMVP;
 			sourceTree = "<group>";
@@ -178,6 +178,22 @@
 				A5D670D725CEB25C00A69368 /* String.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A5D670EE25CEBC0500A69368 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A5D6707325CEA57100A69368 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A5D670EF25CEBC1300A69368 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A5D6707825CEA57100A69368 /* Info.plist */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -316,7 +332,7 @@
 				A5D6706B25CEA56D00A69368 /* AppDelegate.swift in Sources */,
 				A5D670BA25CEAC1700A69368 /* WebServiceAssembly.swift in Sources */,
 				A5D670D825CEB25C00A69368 /* String.swift in Sources */,
-				A5D6706D25CEA56D00A69368 /* SceneDelegate.swift in Sources */,
+				A5D6706D25CEA56D00A69368 /* AppAssembly.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
