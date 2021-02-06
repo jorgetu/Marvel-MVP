@@ -79,3 +79,31 @@ struct PriceElement: Decodable {
     let type: String?
     let price: Double?
 }
+
+
+// MARK: - Binding class
+internal final class ComicListBinding {
+
+    static func bind(_ apiComicList: ComicListServiceResponse) -> ComicList {
+
+        var list: [Comic] = []
+
+        apiComicList.data?.results?.forEach { apiComic in
+
+            let name = apiComic.title!
+            var url : URL?
+            if let thumbnail = apiComic.thumbnail{
+                url = URL(string: thumbnail.fullName)
+            }
+            
+            let price = apiComic.prices?.filter({$0.type == "printPrice"}).first?.price
+            let onSaleDate = apiComic.dates?.filter({$0.type == "onsaleDate"}).first?.date
+            
+            let comic = Comic(name: name, thumbnail: url, price: price, releaseDate: onSaleDate)
+            list.append(comic)
+        }
+
+        return ComicList(list: list)
+    }
+}
+

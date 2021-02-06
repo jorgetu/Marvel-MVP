@@ -24,6 +24,7 @@
 		A5D6710F25CF0EBC00A69368 /* ComicListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D6710E25CF0EBC00A69368 /* ComicListPresenter.swift */; };
 		A5D6711425CF0F0000A69368 /* ComicListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D6711325CF0F0000A69368 /* ComicListRepository.swift */; };
 		A5D6711925CF100200A69368 /* ComicList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D6711825CF100200A69368 /* ComicList.swift */; };
+		A5D6711E25CF1AFA00A69368 /* ComicListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D6711D25CF1AFA00A69368 /* ComicListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		A5D6710E25CF0EBC00A69368 /* ComicListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicListPresenter.swift; sourceTree = "<group>"; };
 		A5D6711325CF0F0000A69368 /* ComicListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicListRepository.swift; sourceTree = "<group>"; };
 		A5D6711825CF100200A69368 /* ComicList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicList.swift; sourceTree = "<group>"; };
+		A5D6711D25CF1AFA00A69368 /* ComicListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				A5D6710E25CF0EBC00A69368 /* ComicListPresenter.swift */,
+				A5D6711D25CF1AFA00A69368 /* ComicListViewController.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5D6711E25CF1AFA00A69368 /* ComicListViewController.swift in Sources */,
 				A5D670CC25CEAC8300A69368 /* Endpoint.swift in Sources */,
 				A5D6710F25CF0EBC00A69368 /* ComicListPresenter.swift in Sources */,
 				A5D6710425CF0CDC00A69368 /* ComicListAssembly.swift in Sources */,
