@@ -25,6 +25,12 @@
 		A5D6711425CF0F0000A69368 /* ComicListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D6711325CF0F0000A69368 /* ComicListRepository.swift */; };
 		A5D6711925CF100200A69368 /* ComicList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D6711825CF100200A69368 /* ComicList.swift */; };
 		A5D6711E25CF1AFA00A69368 /* ComicListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D6711D25CF1AFA00A69368 /* ComicListViewController.swift */; };
+		A5D6712325CF233300A69368 /* ComicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D6712225CF233300A69368 /* ComicCell.swift */; };
+		A5D6712925CF23B600A69368 /* NibLoadableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D6712825CF23B600A69368 /* NibLoadableView.swift */; };
+		A5D6713125CF23C300A69368 /* ReusableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D6713025CF23C300A69368 /* ReusableCell.swift */; };
+		A5D6713625CF257F00A69368 /* ComicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5D6713525CF257F00A69368 /* ComicCell.xib */; };
+		A5D6713B25CF259B00A69368 /* ComicListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5D6713A25CF259B00A69368 /* ComicListViewController.xib */; };
+		A5D6714025CF27C400A69368 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D6713F25CF27C400A69368 /* UITableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +75,12 @@
 		A5D6711325CF0F0000A69368 /* ComicListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicListRepository.swift; sourceTree = "<group>"; };
 		A5D6711825CF100200A69368 /* ComicList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicList.swift; sourceTree = "<group>"; };
 		A5D6711D25CF1AFA00A69368 /* ComicListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicListViewController.swift; sourceTree = "<group>"; };
+		A5D6712225CF233300A69368 /* ComicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicCell.swift; sourceTree = "<group>"; };
+		A5D6712825CF23B600A69368 /* NibLoadableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadableView.swift; sourceTree = "<group>"; };
+		A5D6713025CF23C300A69368 /* ReusableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableCell.swift; sourceTree = "<group>"; };
+		A5D6713525CF257F00A69368 /* ComicCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ComicCell.xib; sourceTree = "<group>"; };
+		A5D6713A25CF259B00A69368 /* ComicListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ComicListViewController.xib; sourceTree = "<group>"; };
+		A5D6713F25CF27C400A69368 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +174,7 @@
 		A5D670B525CEABC200A69368 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				A5D6712725CF23A200A69368 /* Protocols */,
 				A5D670D625CEB24E00A69368 /* Extensions */,
 			);
 			path = Utils;
@@ -190,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				A5D670D725CEB25C00A69368 /* String.swift */,
+				A5D6713F25CF27C400A69368 /* UITableView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -235,6 +249,7 @@
 			children = (
 				A5D6710E25CF0EBC00A69368 /* ComicListPresenter.swift */,
 				A5D6711D25CF1AFA00A69368 /* ComicListViewController.swift */,
+				A5D6713A25CF259B00A69368 /* ComicListViewController.xib */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -242,6 +257,8 @@
 		A5D6710125CF095E00A69368 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A5D6712225CF233300A69368 /* ComicCell.swift */,
+				A5D6713525CF257F00A69368 /* ComicCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -252,6 +269,15 @@
 				A5D6711825CF100200A69368 /* ComicList.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		A5D6712725CF23A200A69368 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				A5D6712825CF23B600A69368 /* NibLoadableView.swift */,
+				A5D6713025CF23C300A69368 /* ReusableCell.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -358,6 +384,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5D6707725CEA57100A69368 /* LaunchScreen.storyboard in Resources */,
+				A5D6713625CF257F00A69368 /* ComicCell.xib in Resources */,
+				A5D6713B25CF259B00A69368 /* ComicListViewController.xib in Resources */,
 				A5D6707425CEA57100A69368 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -388,15 +416,19 @@
 				A5D6710F25CF0EBC00A69368 /* ComicListPresenter.swift in Sources */,
 				A5D6710425CF0CDC00A69368 /* ComicListAssembly.swift in Sources */,
 				A5D670C725CEAC5200A69368 /* WebService.swift in Sources */,
+				A5D6714025CF27C400A69368 /* UITableView.swift in Sources */,
 				A5D670C225CEAC3500A69368 /* ServiceError.swift in Sources */,
 				A5D670AE25CEABA400A69368 /* CoreAssembly.swift in Sources */,
 				A5D670FA25CF085C00A69368 /* MNavigationController.swift in Sources */,
+				A5D6712925CF23B600A69368 /* NibLoadableView.swift in Sources */,
 				A5D6706B25CEA56D00A69368 /* AppDelegate.swift in Sources */,
+				A5D6712325CF233300A69368 /* ComicCell.swift in Sources */,
 				A5D670BA25CEAC1700A69368 /* WebServiceAssembly.swift in Sources */,
 				A5D670D825CEB25C00A69368 /* String.swift in Sources */,
 				A5D6706D25CEA56D00A69368 /* AppAssembly.swift in Sources */,
 				A5D6711425CF0F0000A69368 /* ComicListRepository.swift in Sources */,
 				A5D6711925CF100200A69368 /* ComicList.swift in Sources */,
+				A5D6713125CF23C300A69368 /* ReusableCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -566,7 +598,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5V843BN8HH;
-				INFOPLIST_FILE = MarvelMVP/Info.plist;
+				INFOPLIST_FILE = "MarvelMVP/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -585,7 +617,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5V843BN8HH;
-				INFOPLIST_FILE = MarvelMVP/Info.plist;
+				INFOPLIST_FILE = "MarvelMVP/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

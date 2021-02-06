@@ -24,8 +24,7 @@ public final class ComicListAssembly {
 
     // MARK: - Internal Methods
     func presenter() -> ComicListPresenterProtocol {
-        return ComicListPresenter(comicDetailNavigator: comicDetailAssembly.detailNavigator(),
-                                        comicListRepository: comicListRepository())
+        return ComicListPresenter(comicListRepository: comicListRepository())
     }
 
     func comicListRepository() -> ComicListRepositoryProtocol {
