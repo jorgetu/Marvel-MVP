@@ -8,7 +8,7 @@
 import Foundation
 
 internal enum Endpoint {
-
+    case comics
 }
 
 internal extension Endpoint {
@@ -40,17 +40,22 @@ private extension Endpoint {
 
     var method: HTTPMethod {
         switch self {
+        case .comics:
+            return .get
         }
     }
 
     var path: String {
         switch self {
+        case .comics:
+            return "comics"
         }
     }
 
     var parameters: [String: String] {
-        let timeStamp = NSDate().timeIntervalSince1970
         switch self {
+        case .comics:
+            return [:]
         }
     }
 }
