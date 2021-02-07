@@ -55,7 +55,8 @@ private extension Endpoint {
     var parameters: [String: String] {
         switch self {
         case .comics:
-            return [:]
+            return ["apikey": String.Constants.apiKey ,"ts": String.Constants.ts,"hash" : String.Constants.hash]
+
         }
     }
 }
