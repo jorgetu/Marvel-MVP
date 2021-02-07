@@ -7,16 +7,28 @@
 
 import Foundation
 
+
+enum FormatComic: String {
+    case comic = "Comic"
+    case paperback = "Trade Paperback"
+}
+
+
 // MARK: - Model
 struct ComicList {
     var list: [Comic] = []
 }
 
 struct Comic {
-    let name: String
+    let title: String?
+    let issueNumber: Int?
+    let description: String?
+    let format: FormatComic?
+    let pageCount: Int?
     let thumbnail : URL?
-    let price: Double?
-    let releaseDate: String?
+    let printPrice: Double?
+    let digitalPrice: Double?
+    let onSaleDate: String?
 }
 
 
@@ -42,6 +54,9 @@ struct Element: Decodable {
     let pageCount: Int?
     let dates: [DateElement]?
     let prices: [PriceElement]?
+    let issueNumber: Int?
+    let description: String?
+    let format: String?
 
     private enum CodingKeys: String, CodingKey {
         case id
@@ -51,6 +66,9 @@ struct Element: Decodable {
         case pageCount
         case dates
         case prices
+        case issueNumber
+        case description
+        case format
     }
 }
 
@@ -96,16 +114,24 @@ internal final class ComicListBinding {
 
         apiComicList.data?.results?.forEach { apiComic in
 
-            let name = apiComic.title!
-            var url : URL?
+            let title = apiComic.title!
+            let issueNumber = apiComic.issueNumber
+            let description = apiComic.description
+            var format : FormatComic? = nil
+            if let safeFormat = apiComic.format{
+                format = FormatComic(rawValue: safeFormat)
+            }
+            let pageCount = apiComic.pageCount
+            var url : URL? = nil
             if let thumbnail = apiComic.thumbnail, let fullName = thumbnail.fullName{
                 url = URL(string: fullName)
             }
             
-            let price = apiComic.prices?.filter({$0.type == "printPrice"}).first?.price
+            let printPrice = apiComic.prices?.filter({$0.type == "printPrice"}).first?.price
+            let digitalPurchasePrice = apiComic.prices?.filter({$0.type == "digitalPurchasePrice"}).first?.price
             let onSaleDate = apiComic.dates?.filter({$0.type == "onsaleDate"}).first?.date
             
-            let comic = Comic(name: name, thumbnail: url, price: price, releaseDate: onSaleDate)
+            let comic = Comic(title: title, issueNumber: issueNumber, description: description, format: format, pageCount: pageCount, thumbnail: url, printPrice: printPrice, digitalPrice: digitalPurchasePrice, onSaleDate: onSaleDate)
             list.append(comic)
         }
 

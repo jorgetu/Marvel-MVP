@@ -29,7 +29,7 @@ internal final class ComicCell: UITableViewCell, NibLoadableView, ReusableCell {
 
         if let comic = comic {
             comicName.isHidden = false
-            comicName.text = comic.name
+            comicName.text = comic.title
         }else{
             comicName.isHidden = true
         }
