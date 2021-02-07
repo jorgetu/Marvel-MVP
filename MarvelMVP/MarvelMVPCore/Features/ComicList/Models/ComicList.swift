@@ -56,15 +56,21 @@ struct Element: Decodable {
 
 // MARK: - ThumbnailElement
 struct ThumbnailElement: Decodable {
-    let path: String
-    let ext: String
+    let path: String?
+    let ext: String?
     
     enum CodingKeys: String, CodingKey {
         case path
         case ext = "extension"
     }
-    var fullName: String {
-        get { return path + "." + ext }
+    var fullName: String? {
+        get {
+            if let path = path, let ext = ext {
+                return path + "." + ext
+            }else{
+                return nil
+            }
+        }
     }
 }
 
@@ -92,8 +98,8 @@ internal final class ComicListBinding {
 
             let name = apiComic.title!
             var url : URL?
-            if let thumbnail = apiComic.thumbnail{
-                url = URL(string: thumbnail.fullName)
+            if let thumbnail = apiComic.thumbnail, let fullName = thumbnail.fullName{
+                url = URL(string: fullName)
             }
             
             let price = apiComic.prices?.filter({$0.type == "printPrice"}).first?.price
