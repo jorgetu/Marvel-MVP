@@ -14,24 +14,22 @@ internal final class ComicCell: UITableViewCell, NibLoadableView, ReusableCell {
 
     // MARK: - IBOutlets
     
-    @IBOutlet var comicName: UILabel!
+    @IBOutlet var comicTitle: UILabel!
     @IBOutlet var comicImage: UIImageView!
     
     
     // MARK: - Lifecycle Methods
     override func prepareForReuse() {
         super.prepareForReuse()
-        comicName.text = nil
     }
 
     // MARK: - Internal Methods
     func bind(with comic: Comic?) {
-
         if let comic = comic {
-            comicName.isHidden = false
-            comicName.text = comic.title
+            comicTitle.isHidden = false
+            comicTitle.text = comic.title
         }else{
-            comicName.isHidden = true
+            comicTitle.isHidden = true
         }
     }
 

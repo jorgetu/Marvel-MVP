@@ -18,16 +18,15 @@ internal protocol ComicListViewProtocol: class {
 internal final class ComicListViewController: UIViewController {
 
     // MARK: - IBOutlets
-    @IBOutlet private weak var comicListTableView: UITableView!
+
+    @IBOutlet var comicListTableView: UITableView!
     @IBOutlet private weak var errorView: UIView!
     @IBOutlet private weak var errorLabel: UILabel!
     @IBOutlet private weak var retryLabel: UILabel!
-
-
+    
     // MARK: - Properties
     private let presenter: ComicListPresenterProtocol
-
-    // MARK: - Constants
+    
     private enum Constants {
         static let activityIndicatorHeight: CGFloat = 40
         static let retryButtonAnimationDuration: TimeInterval = 0.5
