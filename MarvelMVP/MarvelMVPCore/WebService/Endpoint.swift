@@ -55,9 +55,16 @@ private extension Endpoint {
     var parameters: [String: String] {
         switch self {
         case .comics:
-            return ["apikey": String.Constants.apiKey ,"ts": String.Constants.ts,"hash" : String.Constants.hash]
+            let timestamp = "\((NSDate().timeIntervalSince1970 * 1000.0).rounded())"
+            let hash = "\(timestamp)\(String.Constants.privateKey)\(String.Constants.apiKey)".MD5
+            return ["apikey": String.Constants.apiKey ,"ts": timestamp,"hash" : hash]
 
         }
+      
+        let timeInterval = (NSDate().timeIntervalSince1970 * 1000.0).rounded()
+        let ms = Int((timeInterval * 1000).truncatingRemainder(dividingBy: 1))
+        let s = String(ms)
     }
+    
 }
 
