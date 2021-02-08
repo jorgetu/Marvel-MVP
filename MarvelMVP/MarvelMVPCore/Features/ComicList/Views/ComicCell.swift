@@ -6,9 +6,9 @@
 //
 
 import Foundation
-
-import Foundation
 import UIKit
+import SDWebImage
+
 
 internal final class ComicCell: UITableViewCell, NibLoadableView, ReusableCell {
 
@@ -28,6 +28,9 @@ internal final class ComicCell: UITableViewCell, NibLoadableView, ReusableCell {
         if let comic = comic {
             comicTitle.isHidden = false
             comicTitle.text = comic.title
+            comicImage.sd_cancelCurrentImageLoad()
+            comicImage.image = UIImage.init(systemName: "house")
+            comicImage.sd_setImage(with: comic.thumbnail, placeholderImage: UIImage(named: "placeholder.png"))
         }else{
             comicTitle.isHidden = true
         }
