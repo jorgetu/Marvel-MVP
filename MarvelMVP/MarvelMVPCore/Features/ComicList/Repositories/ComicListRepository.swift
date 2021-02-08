@@ -8,7 +8,7 @@
 import Foundation
 
 internal protocol ComicListRepositoryProtocol {
-    func fetchComicList(completion completed: @escaping (Result<ComicList, ServiceError>) -> Void)
+    func fetchComicList(offset: Int, completion completed: @escaping (Result<ComicList, ServiceError>) -> Void)
 }
 
 
@@ -24,9 +24,9 @@ internal final class ComicListRepository: ComicListRepositoryProtocol {
     }
 
     // MARK: - ComicListRepository
-    func fetchComicList(completion completed: @escaping (Result<ComicList, ServiceError>) -> Void) {
+    func fetchComicList(offset: Int, completion completed: @escaping (Result<ComicList, ServiceError>) -> Void) {
         
-        webService.load(ComicListServiceResponse.self, from: .comics) { result in
+        webService.load(ComicListServiceResponse.self, from: .comics(offset: offset)) { result in
                             DispatchQueue.main.async {
                                 switch result {
                                 case .success(let apiComicList):

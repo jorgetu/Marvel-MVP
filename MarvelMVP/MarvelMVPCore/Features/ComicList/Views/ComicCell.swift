@@ -27,12 +27,14 @@ internal final class ComicCell: UITableViewCell, NibLoadableView, ReusableCell {
     func bind(with comic: Comic?) {
         if let comic = comic {
             comicTitle.isHidden = false
+            comicImage.isHidden = false
             comicTitle.text = comic.title
             comicImage.sd_cancelCurrentImageLoad()
-            comicImage.image = UIImage.init(systemName: "house")
+            comicImage.image = UIImage.init(systemName: "house")  // TO DO
             comicImage.sd_setImage(with: comic.thumbnail, placeholderImage: UIImage(named: "placeholder.png"))
         }else{
             comicTitle.isHidden = true
+            comicImage.isHidden = true
         }
     }
 

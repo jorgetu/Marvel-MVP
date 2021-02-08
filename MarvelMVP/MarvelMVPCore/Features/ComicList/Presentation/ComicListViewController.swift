@@ -34,12 +34,6 @@ internal final class ComicListViewController: UIViewController {
     }
 
     // MARK: - Variables
-    
-    private lazy var refreshControl: UIRefreshControl = {
-        let refreshControl = UIRefreshControl()
-        refreshControl.tintColor = #colorLiteral(red: 0.1921568627, green: 0.631372549, blue: 0.5411764706, alpha: 1)
-        return refreshControl
-    }()
     private lazy var activityIndicator: UIActivityIndicatorView = {
         let frame = CGRect(x: 0,
                            y: 0,
@@ -118,9 +112,6 @@ extension ComicListViewController: ComicListViewProtocol {
     func update() {
         comicListTableView.reloadData()
 
-        if refreshControl.isRefreshing {
-            refreshControl.endRefreshing()
-        }
     }
 
     func showError(_ error: ServiceError) {
@@ -137,7 +128,7 @@ extension ComicListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {
 
-        return presenter.comicList.list.count
+        return min(presenter.comicList.list.count + 1, presenter.comicList.totalItems)
     }
 
     func tableView(_ tableView: UITableView,
@@ -145,8 +136,27 @@ extension ComicListViewController: UITableViewDataSource, UITableViewDelegate {
 
         let cell = tableView.dequeueReusableCell(ComicCell.self, for: indexPath)
 
-        cell.bind(with: presenter.comicList.list[indexPath.row])
-        cell.accessibilityIdentifier = "ComicCell_\(indexPath.row)"
+        if isLoadingCell(for: indexPath) {
+            cell.bind(with: nil)
+        } else {
+            cell.bind(with: presenter.comicList.list[indexPath.row])
+            cell.accessibilityIdentifier = "ComicCell_\(indexPath.row)" // TO DO ??
+        }
         return cell
+    }
+}
+
+// MARK: - UITableViewDataSourcePrefetching
+extension ComicListViewController: UITableViewDataSourcePrefetching {
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        if indexPaths.contains(where: isLoadingCell) {
+            presenter.fetchComicList()
+         }
+      }
+}
+
+private extension ComicListViewController {
+    func isLoadingCell(for indexPath: IndexPath) -> Bool {
+        return indexPath.row >= presenter.comicList.list.count && indexPath.row <= presenter.comicList.totalItems
     }
 }

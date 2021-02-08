@@ -38,13 +38,15 @@ internal final class ComicListPresenter: ComicListPresenterProtocol {
         
         view?.setLoading(true)
 
-        comicListRepository.fetchComicList() { [weak self] result in
+        comicListRepository.fetchComicList(offset: self.comicList.offset) { [weak self] result in
 
             guard let `self` = self else { return }
             self.view?.setLoading(false)
             switch result {
             case .success(let newComicList):
-                self.comicList = newComicList
+                self.comicList.offset = newComicList.offset
+                self.comicList.totalItems = newComicList.totalItems
+                self.comicList.list.append(contentsOf: newComicList.list)
 
                 self.view?.update()
             case .failure(let error):

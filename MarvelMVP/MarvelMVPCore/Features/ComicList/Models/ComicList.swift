@@ -17,6 +17,8 @@ enum FormatComic: String {
 // MARK: - Model
 struct ComicList {
     var list: [Comic] = []
+    var totalItems: Int = 0
+    var offset: Int = 0
 }
 
 struct Comic {
@@ -134,8 +136,11 @@ internal final class ComicListBinding {
             let comic = Comic(title: title, issueNumber: issueNumber, description: description, format: format, pageCount: pageCount, thumbnail: url, printPrice: printPrice, digitalPrice: digitalPurchasePrice, onSaleDate: onSaleDate)
             list.append(comic)
         }
+        
+        let totalItems = apiComicList.data?.total ?? 0
+        let offset = (apiComicList.data?.offset ?? 0) + (apiComicList.data?.count ?? 0)
 
-        return ComicList(list: list)
+        return ComicList(list: list, totalItems: totalItems, offset: offset)
     }
 }
 
