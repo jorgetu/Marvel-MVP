@@ -1,0 +1,22 @@
+PODS:
+  - SDWebImage (5.10.4):
+    - SDWebImage/Core (= 5.10.4)
+  - SDWebImage/Core (5.10.4)
+  - SnapshotTesting (1.8.2)
+
+DEPENDENCIES:
+  - SDWebImage (~> 5.0)
+  - SnapshotTesting (~> 1.8.1)
+
+SPEC REPOS:
+  trunk:
+    - SDWebImage
+    - SnapshotTesting
+
+SPEC CHECKSUMS:
+  SDWebImage: c666b97e1fa9c64b4909816a903322018f0a9c84
+  SnapshotTesting: 38947050d13960d57a4a9c166fcf51bca7d56970
+
+PODFILE CHECKSUM: 5c61f66090a7b92ddb8d203b5c5f00d2c8ca4b2a
+
+COCOAPODS: 1.8.4

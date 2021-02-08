@@ -60,10 +60,6 @@ private extension Endpoint {
             return ["apikey": String.Constants.apiKey ,"ts": timestamp,"hash" : hash]
 
         }
-      
-        let timeInterval = (NSDate().timeIntervalSince1970 * 1000.0).rounded()
-        let ms = Int((timeInterval * 1000).truncatingRemainder(dividingBy: 1))
-        let s = String(ms)
     }
     
 }
