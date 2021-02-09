@@ -12,6 +12,7 @@ internal protocol ComicListViewProtocol: class {
     func setLoading(_ loading: Bool)
     func update()
     func showError(_ error: ServiceError)
+    var title: String? { get set }
 }
 
 
@@ -40,8 +41,8 @@ internal final class ComicListViewController: UIViewController {
                            width: comicListTableView.bounds.width,
                            height: Constants.activityIndicatorHeight)
         let activityIndicator = UIActivityIndicatorView(frame: frame)
-        activityIndicator.color = #colorLiteral(red: 0.1921568627, green: 0.631372549, blue: 0.5411764706, alpha: 1)
-        activityIndicator.tintColor = #colorLiteral(red: 0.1921568627, green: 0.631372549, blue: 0.5411764706, alpha: 1)
+        activityIndicator.color = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
+        activityIndicator.tintColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
         activityIndicator.hidesWhenStopped = true
         activityIndicator.startAnimating()
         return activityIndicator

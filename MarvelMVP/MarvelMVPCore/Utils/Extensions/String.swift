@@ -26,19 +26,7 @@ public extension String {
     
     // MARK: - String + localized
     var localized: String {
-
-        var bundle: Bundle?
-        if let bundleName = self.split(separator: "_").first {
-            if bundleName == "app" {
-                bundle = .main
-            } else {
-                bundle = Bundle(identifier: "\(Constants.bundleIdentifierBase).\(bundleName)")
-            }
-        }
-
         return NSLocalizedString(self,
-                                 tableName: "Localizable",
-                                 bundle: bundle ?? .main,
                                  value: "**\(self)**",
                                  comment: "")
     }

@@ -31,6 +31,7 @@ internal final class ComicListPresenter: ComicListPresenterProtocol {
 
     // MARK: - ComicListPresenterProtocol
     func loadView() {
+        view?.title = "comicList_title".localized
         fetchComicList()
     }
     

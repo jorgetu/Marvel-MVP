@@ -31,6 +31,8 @@
 		A5D6713625CF257F00A69368 /* ComicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5D6713525CF257F00A69368 /* ComicCell.xib */; };
 		A5D6713B25CF259B00A69368 /* ComicListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5D6713A25CF259B00A69368 /* ComicListViewController.xib */; };
 		A5D6714025CF27C400A69368 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D6713F25CF27C400A69368 /* UITableView.swift */; };
+		A5D6727525D303D800A69368 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A5D6727725D303D800A69368 /* Localizable.strings */; };
+		A5D6728125D30AE300A69368 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D6728025D30AE300A69368 /* UILabel.swift */; };
 		AD5699D3BE1A0AC9B5E43BE5 /* Pods_Marvel_MVP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 906047B06279A36E91FF7999 /* Pods_Marvel_MVP.framework */; };
 		BD919AD50C8BEA7D2E9B0C06 /* Pods_Marvel_MVPUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CC4DE5122337CF0972DB7CC /* Pods_Marvel_MVPUITests.framework */; };
 		F32922EB18CA741588DC2822 /* Pods_Marvel_MVPTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E13EA35A92C84CBC4B9FCDE0 /* Pods_Marvel_MVPTests.framework */; };
@@ -90,6 +92,10 @@
 		A5D6713525CF257F00A69368 /* ComicCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ComicCell.xib; sourceTree = "<group>"; };
 		A5D6713A25CF259B00A69368 /* ComicListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ComicListViewController.xib; sourceTree = "<group>"; };
 		A5D6713F25CF27C400A69368 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
+		A5D6727625D303D800A69368 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A5D6727B25D3047100A69368 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		A5D6727C25D3047200A69368 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A5D6728025D30AE300A69368 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		D2CFCDB5B83B0E4DC46D9877 /* Pods-Marvel-MVP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marvel-MVP.release.xcconfig"; path = "Target Support Files/Pods-Marvel-MVP/Pods-Marvel-MVP.release.xcconfig"; sourceTree = "<group>"; };
 		E13EA35A92C84CBC4B9FCDE0 /* Pods_Marvel_MVPTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Marvel_MVPTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E795E9701EF38F3A0D88B97E /* Pods-Marvel-MVPTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marvel-MVPTests.debug.xcconfig"; path = "Target Support Files/Pods-Marvel-MVPTests/Pods-Marvel-MVPTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -234,6 +240,7 @@
 			children = (
 				A5D670D725CEB25C00A69368 /* String.swift */,
 				A5D6713F25CF27C400A69368 /* UITableView.swift */,
+				A5D6728025D30AE300A69368 /* UILabel.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -242,6 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				A5D6707325CEA57100A69368 /* Assets.xcassets */,
+				A5D6727725D303D800A69368 /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -411,6 +419,7 @@
 			knownRegions = (
 				en,
 				Base,
+				es,
 			);
 			mainGroup = A5D6705E25CEA56D00A69368;
 			productRefGroup = A5D6706825CEA56D00A69368 /* Products */;
@@ -429,6 +438,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5D6727525D303D800A69368 /* Localizable.strings in Resources */,
 				A5D6707725CEA57100A69368 /* LaunchScreen.storyboard in Resources */,
 				A5D6713625CF257F00A69368 /* ComicCell.xib in Resources */,
 				A5D6713B25CF259B00A69368 /* ComicListViewController.xib in Resources */,
@@ -584,6 +594,7 @@
 				A5D670C725CEAC5200A69368 /* WebService.swift in Sources */,
 				A5D6714025CF27C400A69368 /* UITableView.swift in Sources */,
 				A5D670C225CEAC3500A69368 /* ServiceError.swift in Sources */,
+				A5D6728125D30AE300A69368 /* UILabel.swift in Sources */,
 				A5D670AE25CEABA400A69368 /* CoreAssembly.swift in Sources */,
 				A5D670FA25CF085C00A69368 /* MNavigationController.swift in Sources */,
 				A5D6712925CF23B600A69368 /* NibLoadableView.swift in Sources */,
@@ -634,8 +645,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				A5D6707625CEA57100A69368 /* Base */,
+				A5D6727B25D3047100A69368 /* es */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		A5D6727725D303D800A69368 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A5D6727625D303D800A69368 /* en */,
+				A5D6727C25D3047200A69368 /* es */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -645,6 +666,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -706,6 +728,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

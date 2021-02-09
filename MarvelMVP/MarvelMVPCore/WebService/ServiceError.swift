@@ -22,17 +22,17 @@ public enum ServiceError: LocalizedError {
     public var errorDescription: String? {
         switch self {
         case .mappingFailed:
-            return "core_serviceError_mappingFailed".localized
+            return "serviceError_mappingFailed".localized
         case .unexpected, .business:
-            return "core_serviceError_unexpected".localized
+            return "serviceError_unexpected".localized
         case .noNetwork:
-            return "core_serviceError_noNetwork".localized
+            return "serviceError_noNetwork".localized
         case .internalServer:
-            return "core_serviceError_internalServer".localized
+            return "serviceError_internalServer".localized
         case .timedOut:
-            return "core_serviceError_timedOut".localized
+            return "serviceError_timedOut".localized
         case .noContent:
-            return "core_serviceError_noContent".localized
+            return "serviceError_noContent".localized
         case .unknown(let error):
             return error.localizedDescription
         }

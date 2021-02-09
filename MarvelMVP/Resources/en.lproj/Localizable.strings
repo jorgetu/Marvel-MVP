@@ -1,0 +1,28 @@
+/* 
+  Localizable.strings
+  Marvel-MVP
+
+  Created by Jorge Arias Brasa on 09/02/2021.
+  
+*/
+
+// MARK: - ServiceErrors
+
+"serviceError_mappingFailed" = "Could not decode response as desired type";
+
+"serviceError_unexpected" = "An error has occurred";
+
+"serviceError_noNetwork" = "The device has no connection to the internet";
+
+"serviceError_internalServer" = "The connection received an invalid server response";
+
+"serviceError_timedOut" = "The connection timed out";
+
+"serviceError_noContent" = "The connection retrieved no response";
+
+
+// MARK: - ComicList
+
+"comicList_title" = "Marvel";
+
+"comicList_tap_to_retry" = "Tap here to retry";

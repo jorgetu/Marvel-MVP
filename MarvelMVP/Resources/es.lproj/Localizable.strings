@@ -1,0 +1,28 @@
+/* 
+  Localizable.strings
+  Marvel-MVP
+
+  Created by Jorge Arias Brasa on 09/02/2021.
+  
+*/
+
+// MARK: - ServiceErrors
+
+"serviceError_mappingFailed" = "No se ha podido convertir la respuesta al tipo deseado";
+
+"serviceError_unexpected" = "Ha ocurrido un error";
+
+"serviceError_noNetwork" = "El dispositivo no tiene conexión a internet";
+
+"serviceError_internalServer" = "La conexión ha recibido una respuesta inválida";
+
+"serviceError_timedOut" = "La conexión ha expirado";
+
+"serviceError_noContent" = "La conexión no ha recibido ninguna respuesta";
+
+
+// MARK: - ComicList
+
+"comicList_title" = "Marvel";
+
+"comicList_tap_to_retry" = "Pulse aquí para reintentar";
