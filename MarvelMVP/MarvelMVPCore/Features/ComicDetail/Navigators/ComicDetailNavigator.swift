@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+internal protocol ComicDetailNavigatorProtocol {
+    func showDetail<T>(item: T)
+}
+
+

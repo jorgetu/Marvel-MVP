@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+
+
+internal protocol ComicDetailPresenterProtocol: class {
+
+    var view: ComicDetailViewProtocol? { get set }
+    func loadView()
+}

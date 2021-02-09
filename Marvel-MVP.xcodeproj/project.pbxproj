@@ -350,9 +350,9 @@
 		A5D6729825D3184000A69368 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				A5D672B025D318B300A69368 /* ComicDetailPresenter.swift */,
 				A5D672AB25D318A300A69368 /* ComicDetailViewController.swift */,
 				A5D672A625D3188E00A69368 /* ComicDetailViewController.xib */,
-				A5D672B025D318B300A69368 /* ComicDetailPresenter.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
