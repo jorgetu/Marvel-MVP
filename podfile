@@ -11,7 +11,7 @@ end
 
 target 'Marvel-MVP' do
   # Pods for Marvel-MVP
-  pod 'SDWebImage' , '~> 5.0'
+  pod 'SDWebImage' , '~> 5.0' , :inhibit_warnings => true
 
 
   target 'Marvel-MVPTests' do
