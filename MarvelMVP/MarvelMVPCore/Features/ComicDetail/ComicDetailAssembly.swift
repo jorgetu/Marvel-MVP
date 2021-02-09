@@ -19,9 +19,9 @@ internal final class ComicDetailAssembly {
     }
 
     // MARK: - Internal Methods
-    func comicDetailPresenter(comicName: String) -> ComicDetailPresenterProtocol {
+    func comicDetailPresenter(comic: Comic) -> ComicDetailPresenterProtocol {
 
-        return ComicDetailPresenter(comicName: comicName)
+        return ComicDetailPresenter(comic: comic)
     }
 
     func detailNavigator() -> ComicDetailNavigatorProtocol {
@@ -38,7 +38,7 @@ extension ComicDetailAssembly: ComicDetailViewControllerProviderProtocol {
         var viewController: UIViewController?
 
         if let comic = item as? Comic {
-            let presenter = ComicDetailPresenter(comicName: comic.name)
+            let presenter = ComicDetailPresenter(comic: comic)
             viewController = ComicDetailViewController(presenter: presenter)
         }
        

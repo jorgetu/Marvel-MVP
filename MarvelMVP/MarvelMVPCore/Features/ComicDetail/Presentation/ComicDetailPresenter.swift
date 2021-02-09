@@ -14,3 +14,24 @@ internal protocol ComicDetailPresenterProtocol: class {
     var view: ComicDetailViewProtocol? { get set }
     func loadView()
 }
+
+internal final class ComicDetailPresenter: ComicDetailPresenterProtocol {
+
+    // MARK: - Properties
+    private let comic: Comic
+ 
+    // MARK: - Variables
+    weak var view: ComicDetailViewProtocol?
+
+    // MARK: - Initializers
+    init(comic: Comic) {
+        self.comic = comic
+    }
+
+    // MARK: - ComicDetailPresenterProtocol
+    func loadView() {
+
+        view?.title = "core_ComicDetail_title".localized
+        view?.showComic(comic: self.comic)
+    }
+}
