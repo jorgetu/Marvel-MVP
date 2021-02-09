@@ -10,6 +10,7 @@ import Foundation
 internal protocol ComicListPresenterProtocol: class {
     func loadView()
     func fetchComicList()
+    func didSelect(comic: Comic)
     var comicList : ComicList { get }
     var view: ComicListViewProtocol? { get set }
 }
@@ -19,13 +20,16 @@ internal final class ComicListPresenter: ComicListPresenterProtocol {
 
     // MARK: - Properties
     private let comicListRepository  : ComicListRepositoryProtocol
+    private let comicDetailNavigator: ComicDetailNavigatorProtocol
 
     // MARK: - Variables
     weak var view: ComicListViewProtocol?
     internal var comicList = ComicList()
 
     // MARK: - Initializers
-    init(comicListRepository: ComicListRepositoryProtocol) {
+    init(comicDetailNavigator: ComicDetailNavigatorProtocol,
+         comicListRepository: ComicListRepositoryProtocol) {
+        self.comicDetailNavigator = comicDetailNavigator
         self.comicListRepository = comicListRepository
     }
 
@@ -54,5 +58,9 @@ internal final class ComicListPresenter: ComicListPresenterProtocol {
                 self.view?.showError(error)
             }
         }
+    }
+    
+    func didSelect(comic: Comic) {
+        comicDetailNavigator.showDetail(item: comic)
     }
 }

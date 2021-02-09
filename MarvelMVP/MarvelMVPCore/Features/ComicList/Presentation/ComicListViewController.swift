@@ -145,6 +145,13 @@ extension ComicListViewController: UITableViewDataSource, UITableViewDelegate {
         }
         return cell
     }
+    
+    func tableView(_ tableView: UITableView,
+                   didSelectRowAt indexPath: IndexPath) {
+
+        let comic = presenter.comicList.list[indexPath.row]
+        presenter.didSelect(comic: comic)
+    }
 }
 
 // MARK: - UITableViewDataSourcePrefetching
