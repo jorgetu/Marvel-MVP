@@ -50,6 +50,7 @@ extension ComicDetailViewController: ComicDetailViewProtocol {
 
     func showComic(comic: Comic) {
         if let title = comic.title {
+            // TO DO Add pending values to screen
             self.comicName.text = title
             comicImage.sd_setImage(with: comic.thumbnail, placeholderImage: UIImage(named: "placeholder.png"))
         }
