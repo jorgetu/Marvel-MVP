@@ -22,7 +22,9 @@
 
 
 // MARK: - ComicList
-
 "comicList_title" = "Marvel";
 
 "comicList_tap_to_retry" = "Tap here to retry";
+
+// MARK: - ComicDetail
+"comicList_detail" = "Detail";

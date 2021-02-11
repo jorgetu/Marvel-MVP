@@ -26,3 +26,6 @@
 "comicList_title" = "Marvel";
 
 "comicList_tap_to_retry" = "Pulse aquí para reintentar";
+
+// MARK: - ComicDetail
+"comicList_detail" = "Detalle";

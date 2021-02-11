@@ -20,8 +20,8 @@ internal final class ComicDetailViewController: UIViewController {
 
     // MARK: - IBOutlets
     @IBOutlet var comicName: UILabel!
+    @IBOutlet var comicImage: UIImageView!
     
-
     // MARK: - Properties
     private let presenter: ComicDetailPresenterProtocol
 
@@ -51,6 +51,7 @@ extension ComicDetailViewController: ComicDetailViewProtocol {
     func showComic(comic: Comic) {
         if let title = comic.title {
             self.comicName.text = title
+            comicImage.sd_setImage(with: comic.thumbnail, placeholderImage: UIImage(named: "placeholder.png"))
         }
     }
 

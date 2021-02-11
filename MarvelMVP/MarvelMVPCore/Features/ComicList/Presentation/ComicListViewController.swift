@@ -142,6 +142,7 @@ extension ComicListViewController: UITableViewDataSource, UITableViewDelegate {
         } else {
             cell.bind(with: presenter.comicList.list[indexPath.row])
             cell.accessibilityIdentifier = "ComicCell_\(indexPath.row)" // TO DO ??
+            cell.selectionStyle = .none
         }
         return cell
     }

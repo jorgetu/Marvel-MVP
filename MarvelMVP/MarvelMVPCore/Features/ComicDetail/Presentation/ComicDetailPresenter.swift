@@ -31,7 +31,7 @@ internal final class ComicDetailPresenter: ComicDetailPresenterProtocol {
     // MARK: - ComicDetailPresenterProtocol
     func loadView() {
 
-        view?.title = "core_ComicDetail_title".localized
+        view?.title = "comicList_detail".localized
         view?.showComic(comic: self.comic)
     }
 }
