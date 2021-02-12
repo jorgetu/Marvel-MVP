@@ -90,7 +90,8 @@ internal final class ComicListViewController: UIViewController {
     }
 
     @objc private func refreshComics() {
-        presenter.fetchComicList()
+        let startsWith = isFilterEmpty ? nil : searchController.searchBar.text
+        presenter.fetchComicList(startsWith: startsWith)
     }
 
     private func animateRetryButton() {
@@ -140,7 +141,7 @@ extension ComicListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {
         // We add one row in case the user arrives to the end, we will fetch more rows
-        return min(presenter.comicList.list.count + 1, presenter.comicList.totalItems)
+        return min(presenter.currentComicList.list.count + 1, presenter.currentComicList.totalItems)
     }
 
     func tableView(_ tableView: UITableView,
@@ -151,7 +152,7 @@ extension ComicListViewController: UITableViewDataSource, UITableViewDelegate {
         if isLoadingCell(for: indexPath) {  // The blank cell
             cell.bind(with: nil)
         } else {
-            cell.bind(with: presenter.comicList.list[indexPath.row])
+            cell.bind(with: presenter.currentComicList.list[indexPath.row])
             cell.accessibilityIdentifier = "ComicCell_\(indexPath.row)"
             cell.selectionStyle = .none
         }
@@ -161,7 +162,7 @@ extension ComicListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView,
                    didSelectRowAt indexPath: IndexPath) {
 
-        let comic = presenter.comicList.list[indexPath.row]
+        let comic = presenter.currentComicList.list[indexPath.row]
         presenter.didSelect(comic: comic)
     }
 }
@@ -170,14 +171,15 @@ extension ComicListViewController: UITableViewDataSource, UITableViewDelegate {
 extension ComicListViewController: UITableViewDataSourcePrefetching {
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         if indexPaths.contains(where: isLoadingCell) {
-            presenter.fetchComicList()
+            let startsWith = isFilterEmpty ? nil : searchController.searchBar.text
+            presenter.fetchComicList(startsWith: startsWith)
          }
       }
 }
 
 private extension ComicListViewController {
     func isLoadingCell(for indexPath: IndexPath) -> Bool {
-        return indexPath.row >= presenter.comicList.list.count && indexPath.row <= presenter.comicList.totalItems
+        return indexPath.row >= presenter.currentComicList.list.count && indexPath.row <= presenter.currentComicList.totalItems
     }
 }
 
@@ -194,10 +196,10 @@ extension ComicListViewController: UISearchResultsUpdating {
     
     NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(self.reload(_:)), object: textToSearch)
     perform(#selector(self.reload(_:)), with: textToSearch, afterDelay: 0.75)
-    
   }
     
     @objc func reload(_ text: String?){
         presenter.preFetchComicList(startsWith: text)
     }
+}
 

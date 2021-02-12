@@ -61,17 +61,23 @@ internal final class ComicListPresenter: ComicListPresenterProtocol {
     
     func fetchComicList(startsWith: String? = nil) {
         
+        prefix = startsWith
+        if comicList[startsWith] == nil{
+            comicList[startsWith] = ComicList()
+        }
+        guard let comicList = comicList[startsWith] else { return }
+        
         view?.setLoading(true)
 
-        comicListRepository.fetchComicList(offset: self.comicList.offset) { [weak self] result in
+        comicListRepository.fetchComicList(offset: self.comicList.offset, titleStartsWith: startsWith) { [weak self] result in
 
             guard let `self` = self else { return }
             self.view?.setLoading(false)
             switch result {
             case .success(let newComicList):
-                self.comicList.offset = newComicList.offset
-                self.comicList.totalItems = newComicList.totalItems
-                self.comicList.list.append(contentsOf: newComicList.list)
+                self.comicList[startsWith]?.offset = newComicList.offset
+                self.comicList[startsWith]?.totalItems = newComicList.totalItems
+                self.comicList[startsWith]?.list.append(contentsOf: newComicList.list)
 
                 self.view?.update()
             case .failure(let error):
