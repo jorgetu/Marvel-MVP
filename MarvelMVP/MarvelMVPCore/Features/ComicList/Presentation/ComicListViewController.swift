@@ -48,6 +48,12 @@ internal final class ComicListViewController: UIViewController {
         return activityIndicator
     }()
     
+    let searchController = UISearchController(searchResultsController: nil)
+    
+    internal var isFilterEmpty: Bool {
+      return searchController.searchBar.text?.isEmpty ?? true
+    }
+    
     // MARK: - Initializers
     init(presenter: ComicListPresenterProtocol) {
         self.presenter = presenter
@@ -66,6 +72,11 @@ internal final class ComicListViewController: UIViewController {
 
         configureUI()
         presenter.loadView()
+        
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search comics"
+        navigationItem.searchController = searchController
     }
     
 
@@ -169,3 +180,9 @@ private extension ComicListViewController {
         return indexPath.row >= presenter.comicList.list.count && indexPath.row <= presenter.comicList.totalItems
     }
 }
+
+extension ComicListViewController: UISearchResultsUpdating {
+  func updateSearchResults(for searchController: UISearchController) {
+  }
+}
+
