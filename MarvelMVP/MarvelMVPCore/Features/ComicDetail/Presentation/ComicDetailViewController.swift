@@ -57,4 +57,3 @@ extension ComicDetailViewController: ComicDetailViewProtocol {
     }
 
 }
-

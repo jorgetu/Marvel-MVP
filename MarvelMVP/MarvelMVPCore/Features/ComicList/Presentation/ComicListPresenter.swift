@@ -12,29 +12,26 @@ internal protocol ComicListPresenterProtocol: class {
     func didSelect(comic: Comic)
     func preFetchComicList(startsWith: String?)
     func fetchComicList(startsWith: String?)
-    var currentComicList : ComicList { get }
+    var currentComicList: ComicList { get }
     var view: ComicListViewProtocol? { get set }
 }
 
 internal final class ComicListPresenter: ComicListPresenterProtocol {
     
-
     // MARK: - Properties
-    private let comicListRepository  : ComicListRepositoryProtocol
+    private let comicListRepository: ComicListRepositoryProtocol
     private let comicDetailNavigator: ComicDetailNavigatorProtocol
 
     // MARK: - Variables
     weak var view: ComicListViewProtocol?
-    private var comicList = [String? : ComicList]()
-    private var prefix : String? = nil
-    internal var currentComicList : ComicList {
-        get {
-            if let currentComicList = comicList[prefix]  {
-                return currentComicList
-            }else{
-                comicList[prefix] = ComicList()
-                return comicList[prefix]!
-            }
+    private var comicList = [String?: ComicList]()
+    private var prefix: String?
+    internal var currentComicList: ComicList {
+        if let currentComicList = comicList[prefix] {
+            return currentComicList
+        } else {
+            comicList[prefix] = ComicList()
+            return comicList[prefix]!
         }
     }
 
@@ -52,7 +49,7 @@ internal final class ComicListPresenter: ComicListPresenterProtocol {
     }
     
     func preFetchComicList(startsWith: String?) {
-        if comicList[startsWith] == nil{
+        if comicList[startsWith] == nil {
             fetchComicList(startsWith: startsWith)
         }
         prefix = startsWith
@@ -62,14 +59,14 @@ internal final class ComicListPresenter: ComicListPresenterProtocol {
     func fetchComicList(startsWith: String? = nil) {
         
         prefix = startsWith
-        if comicList[startsWith] == nil{
+        if comicList[startsWith] == nil {
             comicList[startsWith] = ComicList()
         }
         guard let comicList = comicList[startsWith] else { return }
         
         view?.setLoading(true)
 
-        comicListRepository.fetchComicList(offset: self.comicList.offset, titleStartsWith: startsWith) { [weak self] result in
+        comicListRepository.fetchComicList(offset: comicList.offset, titleStartsWith: startsWith) { [weak self] result in
 
             guard let `self` = self else { return }
             self.view?.setLoading(false)

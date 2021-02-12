@@ -15,7 +15,6 @@ internal protocol ComicListViewProtocol: class {
     var title: String? { get set }
 }
 
-
 internal final class ComicListViewController: UIViewController {
 
     // MARK: - IBOutlets
@@ -79,7 +78,6 @@ internal final class ComicListViewController: UIViewController {
         navigationItem.searchController = searchController
     }
     
-
     // MARK: - Private Methods
     private func configureUI() {
 
@@ -112,7 +110,6 @@ internal final class ComicListViewController: UIViewController {
         refreshComics()
     }
 }
-
 
 // MARK: - ComicListViewController
 extension ComicListViewController: ComicListViewProtocol {
@@ -186,11 +183,11 @@ private extension ComicListViewController {
 extension ComicListViewController: UISearchResultsUpdating {
   func updateSearchResults(for searchController: UISearchController) {
     let searchBar = searchController.searchBar
-    var textToSearch : String? = searchBar.text
+    var textToSearch: String? = searchBar.text
     
     if let safeText = searchBar.text, !safeText.isEmpty {
         textToSearch = safeText
-    }else{
+    } else {
         textToSearch = nil
     }
     
@@ -198,8 +195,7 @@ extension ComicListViewController: UISearchResultsUpdating {
     perform(#selector(self.reload(_:)), with: textToSearch, afterDelay: 0.75)
   }
     
-    @objc func reload(_ text: String?){
+    @objc func reload(_ text: String?) {
         presenter.preFetchComicList(startsWith: text)
     }
 }
-

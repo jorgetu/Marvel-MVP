@@ -42,8 +42,6 @@ extension ComicDetailAssembly: ComicDetailViewControllerProviderProtocol {
             viewController = ComicDetailViewController(presenter: presenter)
         }
        
-
         return viewController
     }
 }
-

@@ -9,5 +9,4 @@ import UIKit
 
 internal final class MNavigationController: UINavigationController, UINavigationControllerDelegate {
 
-
 }

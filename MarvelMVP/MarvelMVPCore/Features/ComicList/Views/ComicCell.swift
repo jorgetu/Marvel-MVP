@@ -9,14 +9,12 @@ import Foundation
 import UIKit
 import SDWebImage
 
-
 internal final class ComicCell: UITableViewCell, NibLoadableView, ReusableCell {
 
     // MARK: - IBOutlets
     
     @IBOutlet var comicTitle: UILabel!
     @IBOutlet var comicImage: UIImageView!
-    
     
     // MARK: - Lifecycle Methods
     override func prepareForReuse() {
@@ -32,7 +30,7 @@ internal final class ComicCell: UITableViewCell, NibLoadableView, ReusableCell {
             comicImage.sd_cancelCurrentImageLoad()
             comicImage.image = UIImage.init(systemName: "house")  // TO DO
             comicImage.sd_setImage(with: comic.thumbnail, placeholderImage: UIImage(named: "placeholder.png"))
-        }else{
+        } else {
             comicTitle.isHidden = true
             comicImage.isHidden = true
         }

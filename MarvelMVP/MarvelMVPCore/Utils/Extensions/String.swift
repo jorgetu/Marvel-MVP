@@ -16,7 +16,7 @@ public extension String {
         static let privateKey: String = "f287e8fc84a9702c32ae83cc4d21ed2d0ecee2f2"
     }
 
-    var MD5 : String {
+    var MD5: String {
         let digest = Insecure.MD5.hash(data: self.data(using: .utf8) ?? Data())
 
         return digest.map {
@@ -31,5 +31,3 @@ public extension String {
                                  comment: "")
     }
 }
-
-

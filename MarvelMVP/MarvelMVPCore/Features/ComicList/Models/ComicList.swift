@@ -7,12 +7,10 @@
 
 import Foundation
 
-
 enum FormatComic: String {
     case comic = "Comic"
     case paperback = "Trade Paperback"
 }
-
 
 // MARK: - Model
 struct ComicList {
@@ -27,12 +25,11 @@ struct Comic {
     let description: String?
     let format: FormatComic?
     let pageCount: Int?
-    let thumbnail : URL?
+    let thumbnail: URL?
     let printPrice: Double?
     let digitalPrice: Double?
     let onSaleDate: String?
 }
-
 
 // MARK: - Service Model
 struct ComicListServiceResponse: Decodable {
@@ -84,12 +81,10 @@ struct ThumbnailElement: Decodable {
         case ext = "extension"
     }
     var fullName: String? {
-        get {
-            if let path = path, let ext = ext {
-                return path + "." + ext
-            }else{
-                return nil
-            }
+        if let path = path, let ext = ext {
+            return path + "." + ext
+        } else {
+            return nil
         }
     }
 }
@@ -106,7 +101,6 @@ struct PriceElement: Decodable {
     let price: Double?
 }
 
-
 // MARK: - Binding class
 internal final class ComicListBinding {
 
@@ -119,13 +113,13 @@ internal final class ComicListBinding {
             let title = apiComic.title!
             let issueNumber = apiComic.issueNumber
             let description = apiComic.description
-            var format : FormatComic? = nil
-            if let safeFormat = apiComic.format{
+            var format: FormatComic?
+            if let safeFormat = apiComic.format {
                 format = FormatComic(rawValue: safeFormat)
             }
             let pageCount = apiComic.pageCount
-            var url : URL? = nil
-            if let thumbnail = apiComic.thumbnail, let fullName = thumbnail.fullName{
+            var url: URL?
+            if let thumbnail = apiComic.thumbnail, let fullName = thumbnail.fullName {
                 url = URL(string: fullName)
             }
             
@@ -143,4 +137,3 @@ internal final class ComicListBinding {
         return ComicList(list: list, totalItems: totalItems, offset: offset)
     }
 }
-

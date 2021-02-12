@@ -30,5 +30,3 @@ internal final class ComicDetailNavigator: ComicDetailNavigatorProtocol {
         }
     }
 }
-
-

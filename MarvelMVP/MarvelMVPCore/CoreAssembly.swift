@@ -25,4 +25,3 @@ final public class CoreAssembly {
         self.navigationController = navigationController
     }
 }
-

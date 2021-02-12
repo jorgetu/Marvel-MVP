@@ -43,4 +43,3 @@ internal extension UITableView {
         return cell
     }
 }
-

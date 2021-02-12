@@ -38,5 +38,3 @@ public final class ComicListAssembly {
         return ComicListRepository(webService: webServiceAssembly.webService)
     }
 }
-
-

@@ -8,9 +8,8 @@
 import Foundation
 
 internal protocol ComicListRepositoryProtocol {
-    func fetchComicList(offset: Int, completion completed: @escaping (Result<ComicList, ServiceError>) -> Void)
+    func fetchComicList(offset: Int, titleStartsWith: String?, completion completed: @escaping (Result<ComicList, ServiceError>) -> Void)
 }
-
 
 internal final class ComicListRepository: ComicListRepositoryProtocol {
 
@@ -24,9 +23,10 @@ internal final class ComicListRepository: ComicListRepositoryProtocol {
     }
 
     // MARK: - ComicListRepository
-    func fetchComicList(offset: Int, completion completed: @escaping (Result<ComicList, ServiceError>) -> Void) {
+    func fetchComicList(offset: Int, titleStartsWith: String?, completion completed: @escaping (Result<ComicList, ServiceError>) -> Void) {
         
-        webService.load(ComicListServiceResponse.self, from: .comics(offset: offset)) { result in
+        webService.load(ComicListServiceResponse.self,
+                        from: .comics(offset: offset, titleStartsWith: titleStartsWith)) { result in
                             DispatchQueue.main.async {
                                 switch result {
                                 case .success(let apiComicList):

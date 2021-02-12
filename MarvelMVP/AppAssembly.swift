@@ -7,8 +7,6 @@
 
 import UIKit
 
-import UIKit
-
 internal final class AppAssembly {
 
     // MARK: - Variables
@@ -18,5 +16,3 @@ internal final class AppAssembly {
         return MNavigationController()
     }()
 }
-
-

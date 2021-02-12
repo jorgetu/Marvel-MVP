@@ -63,4 +63,3 @@ internal final class WebService {
         dataTask?.resume()
     }
 }
-

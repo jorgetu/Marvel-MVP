@@ -8,7 +8,7 @@
 import Foundation
 
 internal enum Endpoint {
-    case comics(offset: Int)
+    case comics(offset: Int, titleStartsWith: String?)
 }
 
 internal extension Endpoint {
@@ -54,12 +54,15 @@ private extension Endpoint {
 
     var parameters: [String: String] {
         switch self {
-        case .comics(let offset):
+        case .comics(let offset, let titleStartsWith):
             let timestamp = "\((NSDate().timeIntervalSince1970 * 1000.0).rounded())"
             let hash = "\(timestamp)\(String.Constants.privateKey)\(String.Constants.apiKey)".MD5
-            return ["apikey": String.Constants.apiKey ,"ts": timestamp,"hash" : hash, "offset": "\(offset)"]
+            var param = ["apikey": String.Constants.apiKey, "ts": timestamp, "hash": hash, "offset": "\(offset)"]
+            if let titleStartsWith = titleStartsWith {
+                param["titleStartsWith"] = titleStartsWith
+            }
+        return param
+            
         }
     }
-    
 }
-
