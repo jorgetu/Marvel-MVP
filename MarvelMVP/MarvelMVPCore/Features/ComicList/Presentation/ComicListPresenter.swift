@@ -9,9 +9,10 @@ import Foundation
 
 internal protocol ComicListPresenterProtocol: class {
     func loadView()
-    func fetchComicList()
     func didSelect(comic: Comic)
-    var comicList : ComicList { get }
+    func preFetchComicList(startsWith: String?)
+    func fetchComicList(startsWith: String?)
+    var currentComicList : ComicList { get }
     var view: ComicListViewProtocol? { get set }
 }
 
@@ -24,7 +25,18 @@ internal final class ComicListPresenter: ComicListPresenterProtocol {
 
     // MARK: - Variables
     weak var view: ComicListViewProtocol?
-    internal var comicList = ComicList()
+    private var comicList = [String? : ComicList]()
+    private var prefix : String? = nil
+    internal var currentComicList : ComicList {
+        get {
+            if let currentComicList = comicList[prefix]  {
+                return currentComicList
+            }else{
+                comicList[prefix] = ComicList()
+                return comicList[prefix]!
+            }
+        }
+    }
 
     // MARK: - Initializers
     init(comicDetailNavigator: ComicDetailNavigatorProtocol,
@@ -39,7 +51,15 @@ internal final class ComicListPresenter: ComicListPresenterProtocol {
         fetchComicList()
     }
     
-    func fetchComicList() {
+    func preFetchComicList(startsWith: String?) {
+        if comicList[startsWith] == nil{
+            fetchComicList(startsWith: startsWith)
+        }
+        prefix = startsWith
+        self.view?.update()
+    }
+    
+    func fetchComicList(startsWith: String? = nil) {
         
         view?.setLoading(true)
 

@@ -183,6 +183,21 @@ private extension ComicListViewController {
 
 extension ComicListViewController: UISearchResultsUpdating {
   func updateSearchResults(for searchController: UISearchController) {
+    let searchBar = searchController.searchBar
+    var textToSearch : String? = searchBar.text
+    
+    if let safeText = searchBar.text, !safeText.isEmpty {
+        textToSearch = safeText
+    }else{
+        textToSearch = nil
+    }
+    
+    NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(self.reload(_:)), object: textToSearch)
+    perform(#selector(self.reload(_:)), with: textToSearch, afterDelay: 0.75)
+    
   }
-}
+    
+    @objc func reload(_ text: String?){
+        presenter.preFetchComicList(startsWith: text)
+    }
 
