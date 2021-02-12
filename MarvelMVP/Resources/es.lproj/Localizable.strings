@@ -29,3 +29,6 @@
 
 // MARK: - ComicDetail
 "comicList_detail" = "Detalle";
+
+// MARK: - ComicFilter
+"comicFilter_search_comics" = "Buscar comic";

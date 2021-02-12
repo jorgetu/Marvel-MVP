@@ -28,3 +28,6 @@
 
 // MARK: - ComicDetail
 "comicList_detail" = "Detail";
+
+// MARK: - ComicFilter
+"comicFilter_search_comics" = "Search comics";

@@ -75,7 +75,7 @@ internal final class ComicListViewController: UIViewController {
         
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search comics"
+        searchController.searchBar.placeholder = "comicFilter_search_comics".localized
         navigationItem.searchController = searchController
     }
     
@@ -83,7 +83,6 @@ internal final class ComicListViewController: UIViewController {
     // MARK: - Private Methods
     private func configureUI() {
 
-        comicListTableView.accessibilityIdentifier = "ComicListTableView"
         comicListTableView.register(ComicCell.self)
         comicListTableView.tableFooterView = activityIndicator
         
@@ -113,6 +112,7 @@ internal final class ComicListViewController: UIViewController {
     }
 }
 
+
 // MARK: - ComicListViewController
 extension ComicListViewController: ComicListViewProtocol {
 
@@ -139,7 +139,7 @@ extension ComicListViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {
-
+        // We add one row in case the user arrives to the end, we will fetch more rows
         return min(presenter.comicList.list.count + 1, presenter.comicList.totalItems)
     }
 
@@ -148,11 +148,11 @@ extension ComicListViewController: UITableViewDataSource, UITableViewDelegate {
 
         let cell = tableView.dequeueReusableCell(ComicCell.self, for: indexPath)
 
-        if isLoadingCell(for: indexPath) {
+        if isLoadingCell(for: indexPath) {  // The blank cell
             cell.bind(with: nil)
         } else {
             cell.bind(with: presenter.comicList.list[indexPath.row])
-            cell.accessibilityIdentifier = "ComicCell_\(indexPath.row)" // TO DO ??
+            cell.accessibilityIdentifier = "ComicCell_\(indexPath.row)"
             cell.selectionStyle = .none
         }
         return cell
