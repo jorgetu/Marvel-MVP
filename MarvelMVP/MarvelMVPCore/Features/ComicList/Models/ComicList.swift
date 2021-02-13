@@ -32,7 +32,7 @@ struct Comic {
 }
 
 // MARK: - Service Model
-struct ComicListServiceResponse: Decodable {
+struct ComicListServiceResponse: Codable {
     let code: Int?
     let status, copyright, attributionText, attributionHTML: String?
     let etag: String?
@@ -40,13 +40,13 @@ struct ComicListServiceResponse: Decodable {
 }
 
 // MARK: - DataClass
-struct DataClass: Decodable {
+struct DataClass: Codable {
     let offset, limit, total, count: Int?
     let results: [Element]?
 }
 
 // MARK: - Element
-struct Element: Decodable {
+struct Element: Codable {
     let id, digitalID: Int?
     let title: String?
     let thumbnail: ThumbnailElement?
@@ -72,7 +72,7 @@ struct Element: Decodable {
 }
 
 // MARK: - ThumbnailElement
-struct ThumbnailElement: Decodable {
+struct ThumbnailElement: Codable {
     let path: String?
     let ext: String?
     
@@ -90,13 +90,13 @@ struct ThumbnailElement: Decodable {
 }
 
 // MARK: - DateElement
-struct DateElement: Decodable {
+struct DateElement: Codable {
     let type: String?
     let date: String?
 }
 
 // MARK: - Price
-struct PriceElement: Decodable {
+struct PriceElement: Codable {
     let type: String?
     let price: Double?
 }
