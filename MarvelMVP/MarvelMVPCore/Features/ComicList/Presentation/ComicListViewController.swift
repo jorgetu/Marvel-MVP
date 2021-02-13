@@ -196,6 +196,6 @@ extension ComicListViewController: UISearchResultsUpdating {
   }
     
     @objc func reload(_ text: String?) {
-        presenter.preFetchComicList(startsWith: text)
+        presenter.fetchComicList(startsWith: text)
     }
 }

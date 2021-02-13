@@ -10,7 +10,7 @@ import Foundation
 internal protocol ComicListPresenterProtocol: class {
     func loadView()
     func didSelect(comic: Comic)
-    func preFetchComicList(startsWith: String?)
+   // func fetchNewComicList(startsWith: String?)
     func fetchComicList(startsWith: String?)
     var currentComicList: ComicList { get }
     var view: ComicListViewProtocol? { get set }
@@ -24,14 +24,14 @@ internal final class ComicListPresenter: ComicListPresenterProtocol {
 
     // MARK: - Variables
     weak var view: ComicListViewProtocol?
-    private var comicList = [String?: ComicList]()
+    private var comicListCached = [String?: ComicList]()
     private var prefix: String?
     internal var currentComicList: ComicList {
-        if let currentComicList = comicList[prefix] {
+        if let currentComicList = comicListCached[prefix] {
             return currentComicList
         } else {
-            comicList[prefix] = ComicList()
-            return comicList[prefix]!
+            comicListCached[prefix] = ComicList()
+            return comicListCached[prefix]!
         }
     }
 
@@ -48,21 +48,20 @@ internal final class ComicListPresenter: ComicListPresenterProtocol {
         fetchComicList()
     }
     
-    func preFetchComicList(startsWith: String?) {
-        if comicList[startsWith] == nil {
-            fetchComicList(startsWith: startsWith)
-        }
-        prefix = startsWith
-        self.view?.update()
-    }
-    
     func fetchComicList(startsWith: String? = nil) {
         
-        prefix = startsWith
-        if comicList[startsWith] == nil {
-            comicList[startsWith] = ComicList()
+        // Check if new filter and case cached
+        if startsWith != prefix  && comicListCached[startsWith] != nil {
+            prefix = startsWith
+            self.view?.update()
+            return
         }
-        guard let comicList = comicList[startsWith] else { return }
+        
+        prefix = startsWith
+        if comicListCached[startsWith] == nil {
+            comicListCached[startsWith] = ComicList()
+        }
+        guard let comicList = comicListCached[startsWith] else { return }
         
         view?.setLoading(true)
 
@@ -72,9 +71,9 @@ internal final class ComicListPresenter: ComicListPresenterProtocol {
             self.view?.setLoading(false)
             switch result {
             case .success(let newComicList):
-                self.comicList[startsWith]?.offset = newComicList.offset
-                self.comicList[startsWith]?.totalItems = newComicList.totalItems
-                self.comicList[startsWith]?.list.append(contentsOf: newComicList.list)
+                self.comicListCached[startsWith]?.offset = newComicList.offset
+                self.comicListCached[startsWith]?.totalItems = newComicList.totalItems
+                self.comicListCached[startsWith]?.list.append(contentsOf: newComicList.list)
 
                 self.view?.update()
             case .failure(let error):

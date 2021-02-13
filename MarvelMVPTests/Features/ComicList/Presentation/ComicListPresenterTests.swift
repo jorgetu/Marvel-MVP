@@ -38,12 +38,14 @@ class ComicListViewMock: ComicListViewProtocol {
 class ComicListRepositoryMock: ComicListRepositoryProtocol {
 
     var forceError = false
+    var comicListRepositoryCalled = false
 
     func fetchComicList(offset: Int, titleStartsWith: String?, completion completed: @escaping (Result<ComicList, ServiceError>) -> Void) {
         
+        comicListRepositoryCalled = true
         let comic = Comic(title: "Title One", issueNumber: 1, description: "Description", format: .comic, pageCount: 200, thumbnail: URL(string: "http://www.example.com/image.jpg"), printPrice: 30.0, digitalPrice: 20.0, onSaleDate: "28/12/2020")
         
-        let comicList = ComicList(list: [comic], totalItems: 100, offset: 40)
+        let comicList = ComicList(list: [comic], totalItems: 100, offset: offset + 1)
         
         let serviceError = ServiceError.unexpected
 
@@ -129,5 +131,75 @@ class ComicListPresenterTests: XCTestCase {
         // Then
         XCTAssertTrue(detailNavigator.showDetailCalled)
     }
+    
+    func test_ComicListNotCached() {
+        // Given
+        repository = ComicListRepositoryMock()
+        repository.forceError = false
+        view = ComicListViewMock()
+        detailNavigator = ComicDetailNavigatorMock()
+        presenter = ComicListPresenter(comicDetailNavigator: detailNavigator, comicListRepository: repository)
+        presenter.view = view
+        
+        presenter.fetchComicList(startsWith: nil)
+        
+        // When
+        presenter.fetchComicList(startsWith: nil)
+
+        // Then
+        XCTAssertEqual(presenter.currentComicList.list.count, 2)
+        XCTAssertEqual(presenter.currentComicList.offset, 2)
+        XCTAssertEqual(presenter.currentComicList.totalItems, 100)
+    }
+    
+    func test_NewComicListCached() {
+        // Given
+        repository = ComicListRepositoryMock()
+        repository.forceError = false
+        view = ComicListViewMock()
+        detailNavigator = ComicDetailNavigatorMock()
+        presenter = ComicListPresenter(comicDetailNavigator: detailNavigator, comicListRepository: repository)
+        presenter.view = view
+        
+        presenter.fetchComicList(startsWith: "t")
+        presenter.fetchComicList(startsWith: "te")
+        repository.comicListRepositoryCalled = false
+        
+        // When
+        presenter.fetchComicList(startsWith: "t")
+
+        // Then
+        XCTAssertEqual(presenter.currentComicList.list.count, 1)
+        XCTAssertEqual(presenter.currentComicList.offset, 1)
+        XCTAssertEqual(presenter.currentComicList.totalItems, 100)
+        XCTAssertFalse(repository.comicListRepositoryCalled)
+        XCTAssertTrue(view.updateComicsCalled)
+    }
+    
+    func test_NewComicListNotCached() {
+        // Given
+        repository = ComicListRepositoryMock()
+        repository.forceError = false
+        view = ComicListViewMock()
+        detailNavigator = ComicDetailNavigatorMock()
+        presenter = ComicListPresenter(comicDetailNavigator: detailNavigator, comicListRepository: repository)
+        presenter.view = view
+        presenter.fetchComicList(startsWith: "t")
+        repository.comicListRepositoryCalled = false
+        
+        // When
+        presenter.fetchComicList(startsWith: "te")
+
+        // Then
+        XCTAssertEqual(presenter.currentComicList.list.count, 1)
+        XCTAssertEqual(presenter.currentComicList.offset, 1)
+        XCTAssertEqual(presenter.currentComicList.totalItems, 100)
+        XCTAssertTrue(repository.comicListRepositoryCalled)
+        XCTAssertTrue(view.updateComicsCalled)
+        XCTAssertTrue(view.startLoadingCalled)
+        XCTAssertTrue(view.stopLoadingCalled)
+    }
+    
+    
 
 }
