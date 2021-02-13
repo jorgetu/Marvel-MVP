@@ -19,6 +19,8 @@ internal final class ComicCell: UITableViewCell, NibLoadableView, ReusableCell {
     // MARK: - Lifecycle Methods
     override func prepareForReuse() {
         super.prepareForReuse()
+        comicTitle.text = nil
+        comicImage.image = nil
     }
 
     // MARK: - Internal Methods
