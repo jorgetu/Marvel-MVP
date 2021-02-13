@@ -14,6 +14,12 @@
 		A50B97F925D83EDF00E332C1 /* EndPointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50B97F825D83EDF00E332C1 /* EndPointTests.swift */; };
 		A50B980125D8471A00E332C1 /* WebServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50B980025D8471A00E332C1 /* WebServiceTests.swift */; };
 		A50B980625D849B900E332C1 /* ServiceErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50B980525D849B900E332C1 /* ServiceErrorTests.swift */; };
+		A50B981A25D8510000E332C1 /* NibLoadableViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50B981925D8510000E332C1 /* NibLoadableViewTests.swift */; };
+		A50B982925D852AA00E332C1 /* TestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50B981F25D8518500E332C1 /* TestCell.swift */; };
+		A50B983025D852B100E332C1 /* TestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A50B982425D851E000E332C1 /* TestCell.xib */; };
+		A50B983825D8538900E332C1 /* ReusableCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50B983725D8538900E332C1 /* ReusableCellTests.swift */; };
+		A50B983D25D853CC00E332C1 /* UITableViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50B983C25D853CC00E332C1 /* UITableViewTests.swift */; };
+		A50B984225D8542700E332C1 /* UILabelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50B984125D8542700E332C1 /* UILabelTests.swift */; };
 		A5D6706B25CEA56D00A69368 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D6706A25CEA56D00A69368 /* AppDelegate.swift */; };
 		A5D6706D25CEA56D00A69368 /* AppAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D6706C25CEA56D00A69368 /* AppAssembly.swift */; };
 		A5D6707425CEA57100A69368 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5D6707325CEA57100A69368 /* Assets.xcassets */; };
@@ -81,6 +87,12 @@
 		A50B97F825D83EDF00E332C1 /* EndPointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPointTests.swift; sourceTree = "<group>"; };
 		A50B980025D8471A00E332C1 /* WebServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServiceTests.swift; sourceTree = "<group>"; };
 		A50B980525D849B900E332C1 /* ServiceErrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceErrorTests.swift; sourceTree = "<group>"; };
+		A50B981925D8510000E332C1 /* NibLoadableViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadableViewTests.swift; sourceTree = "<group>"; };
+		A50B981F25D8518500E332C1 /* TestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCell.swift; sourceTree = "<group>"; };
+		A50B982425D851E000E332C1 /* TestCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestCell.xib; sourceTree = "<group>"; };
+		A50B983725D8538900E332C1 /* ReusableCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableCellTests.swift; sourceTree = "<group>"; };
+		A50B983C25D853CC00E332C1 /* UITableViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewTests.swift; sourceTree = "<group>"; };
+		A50B984125D8542700E332C1 /* UILabelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelTests.swift; sourceTree = "<group>"; };
 		A5D6706725CEA56D00A69368 /* Marvel-MVP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Marvel-MVP.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5D6706A25CEA56D00A69368 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A5D6706C25CEA56D00A69368 /* AppAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAssembly.swift; sourceTree = "<group>"; };
@@ -243,6 +255,42 @@
 			path = WebService;
 			sourceTree = "<group>";
 		};
+		A50B981625D850C200E332C1 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				A50B981725D850C900E332C1 /* Protocols */,
+				A50B981825D850CF00E332C1 /* Extensions */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		A50B981725D850C900E332C1 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				A50B981925D8510000E332C1 /* NibLoadableViewTests.swift */,
+				A50B983725D8538900E332C1 /* ReusableCellTests.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		A50B981825D850CF00E332C1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A50B983C25D853CC00E332C1 /* UITableViewTests.swift */,
+				A50B984125D8542700E332C1 /* UILabelTests.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A50B981E25D8514D00E332C1 /* TestViews */ = {
+			isa = PBXGroup;
+			children = (
+				A50B981F25D8518500E332C1 /* TestCell.swift */,
+				A50B982425D851E000E332C1 /* TestCell.xib */,
+			);
+			path = TestViews;
+			sourceTree = "<group>";
+		};
 		A5D6705E25CEA56D00A69368 = {
 			isa = PBXGroup;
 			children = (
@@ -282,8 +330,10 @@
 		A5D6708025CEA57100A69368 /* MarvelMVPTests */ = {
 			isa = PBXGroup;
 			children = (
-				A50B97F725D83EC900E332C1 /* WebService */,
 				A50B978225D7D66100E332C1 /* Features */,
+				A50B97F725D83EC900E332C1 /* WebService */,
+				A50B981E25D8514D00E332C1 /* TestViews */,
+				A50B981625D850C200E332C1 /* Utils */,
 				A5D6708125CEA57100A69368 /* Marvel_MVPTests.swift */,
 				A5D6708325CEA57100A69368 /* Info.plist */,
 			);
@@ -583,6 +633,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A50B983025D852B100E332C1 /* TestCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -754,10 +805,15 @@
 				A50B978825D7D6D200E332C1 /* ComicListPresenterTests.swift in Sources */,
 				A50B97EF25D838F000E332C1 /* ComicDetailNavigatorTests.swift in Sources */,
 				A50B980125D8471A00E332C1 /* WebServiceTests.swift in Sources */,
+				A50B981A25D8510000E332C1 /* NibLoadableViewTests.swift in Sources */,
+				A50B984225D8542700E332C1 /* UILabelTests.swift in Sources */,
 				A50B97F925D83EDF00E332C1 /* EndPointTests.swift in Sources */,
 				A50B97E625D81C7100E332C1 /* ComicCellTests.swift in Sources */,
+				A50B982925D852AA00E332C1 /* TestCell.swift in Sources */,
 				A50B97E125D818C400E332C1 /* ComicListBindingTests.swift in Sources */,
+				A50B983D25D853CC00E332C1 /* UITableViewTests.swift in Sources */,
 				A5D6708225CEA57100A69368 /* Marvel_MVPTests.swift in Sources */,
+				A50B983825D8538900E332C1 /* ReusableCellTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
