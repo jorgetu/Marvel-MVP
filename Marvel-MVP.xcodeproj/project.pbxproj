@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A50B978825D7D6D200E332C1 /* ComicListPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50B978725D7D6D200E332C1 /* ComicListPresenterTests.swift */; };
 		A5D6706B25CEA56D00A69368 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D6706A25CEA56D00A69368 /* AppDelegate.swift */; };
 		A5D6706D25CEA56D00A69368 /* AppAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D6706C25CEA56D00A69368 /* AppAssembly.swift */; };
 		A5D6707425CEA57100A69368 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5D6707325CEA57100A69368 /* Assets.xcassets */; };
@@ -67,6 +68,7 @@
 		83542F616425825926824B8D /* Pods-Marvel-MVPUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marvel-MVPUITests.debug.xcconfig"; path = "Target Support Files/Pods-Marvel-MVPUITests/Pods-Marvel-MVPUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		906047B06279A36E91FF7999 /* Pods_Marvel_MVP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Marvel_MVP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CC4DE5122337CF0972DB7CC /* Pods_Marvel_MVPUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Marvel_MVPUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A50B978725D7D6D200E332C1 /* ComicListPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicListPresenterTests.swift; sourceTree = "<group>"; };
 		A5D6706725CEA56D00A69368 /* Marvel-MVP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Marvel-MVP.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5D6706A25CEA56D00A69368 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A5D6706C25CEA56D00A69368 /* AppAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAssembly.swift; sourceTree = "<group>"; };
@@ -152,6 +154,46 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		A50B978225D7D66100E332C1 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				A50B978325D7D66700E332C1 /* ComicList */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		A50B978325D7D66700E332C1 /* ComicList */ = {
+			isa = PBXGroup;
+			children = (
+				A50B978625D7D67800E332C1 /* Models */,
+				A50B978525D7D67300E332C1 /* Views */,
+				A50B978425D7D66D00E332C1 /* Presentation */,
+			);
+			path = ComicList;
+			sourceTree = "<group>";
+		};
+		A50B978425D7D66D00E332C1 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				A50B978725D7D6D200E332C1 /* ComicListPresenterTests.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		A50B978525D7D67300E332C1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A50B978625D7D67800E332C1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		A5D6705E25CEA56D00A69368 = {
 			isa = PBXGroup;
 			children = (
@@ -191,6 +233,7 @@
 		A5D6708025CEA57100A69368 /* MarvelMVPTests */ = {
 			isa = PBXGroup;
 			children = (
+				A50B978225D7D66100E332C1 /* Features */,
 				A5D6708125CEA57100A69368 /* Marvel_MVPTests.swift */,
 				A5D6708325CEA57100A69368 /* Info.plist */,
 			);
@@ -657,6 +700,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A50B978825D7D6D200E332C1 /* ComicListPresenterTests.swift in Sources */,
 				A5D6708225CEA57100A69368 /* Marvel_MVPTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -833,6 +877,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5V843BN8HH;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"GLES_SILENCE_DEPRECATION=1",
+				);
 				INFOPLIST_FILE = "MarvelMVP/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -854,6 +903,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5V843BN8HH;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"GLES_SILENCE_DEPRECATION=1",
+				);
 				INFOPLIST_FILE = "MarvelMVP/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -874,6 +928,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5V843BN8HH;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"GLES_SILENCE_DEPRECATION=1",
+				);
 				INFOPLIST_FILE = MarvelMVPTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -897,6 +956,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5V843BN8HH;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"GLES_SILENCE_DEPRECATION=1",
+				);
 				INFOPLIST_FILE = MarvelMVPTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -919,7 +983,12 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5V843BN8HH;
-				INFOPLIST_FILE = "Marvel-MVPUITests/Info.plist";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"GLES_SILENCE_DEPRECATION=1",
+				);
+				INFOPLIST_FILE = MarvelMVPUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -940,7 +1009,12 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5V843BN8HH;
-				INFOPLIST_FILE = "Marvel-MVPUITests/Info.plist";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"GLES_SILENCE_DEPRECATION=1",
+				);
+				INFOPLIST_FILE = MarvelMVPUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
