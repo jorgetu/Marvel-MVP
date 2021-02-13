@@ -6,27 +6,59 @@
 //
 
 import XCTest
+@testable import Marvel_MVP
 
 class ComicCellTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    // MARK: - Variables
+    var cell: ComicCell!
+
+    var date: Date {
+        let calendar = Calendar.current
+        var components = DateComponents()
+        components.year = 2019
+        components.month = 10
+        components.day = 14
+        return calendar.date(from: components)!
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    override func setUp() {
+        super.setUp()
+
+        cell = ComicCell.instantiate()
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    // MARK: - Tests
+    func test_prepareForReuse() {
+
+        cell.prepareForReuse()
+
+        XCTAssertNil(cell.comicImage.image)
+        XCTAssertNil(cell.comicTitle.text)
     }
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func test_bind_increased() {
+
+        let comic = Comic(title: "Title One", issueNumber: 1, description: "Description", format: .comic, pageCount: 200, thumbnail: URL(string: "http://www.example.com/image.jpg"), printPrice: 30.0, digitalPrice: 20.0, onSaleDate: "28/12/2020")
+        cell.bind(with: comic)
+
+        XCTAssertEqual(cell.comicTitle.text, "Title One")
+        XCTAssertFalse(cell.comicTitle.isHidden)
+        XCTAssertFalse(cell.comicImage.isHidden)
+//        let image = UIImage(named: "increased",
+//                            in: Bundle.core,
+//                            compatibleWith: nil)
+//        XCTAssertNotNil(cell.stateImageView.image)
+//        XCTAssertEqual(cell.stateImageView.image, image)
     }
 
+    
+    func test_bind_nil() {
+
+        cell.bind(with: nil)
+
+        XCTAssertTrue(cell.comicTitle.isHidden)
+        XCTAssertTrue(cell.comicImage.isHidden)
+        
+    }
 }
